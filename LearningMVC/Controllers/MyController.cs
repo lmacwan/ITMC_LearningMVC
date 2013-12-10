@@ -15,12 +15,12 @@ namespace LearningMVC.Controllers
         {
             var dbContext = new MyDBDataContext();
             var userList = from user in dbContext.Users select user;
-            var users = new List<LearningMVC.Models.User>();
+            var users = new List<LearningMVC.Models.UserList>();
             if (userList.Any())
             {
                 foreach (var user in userList)
                 {
-                    users.Add(new LearningMVC.Models.User() { UserId = user.UserId, Address = user.Address, Company = user.Company, Designation = user.Designation, Email = user.EMail, FirstName = user.FirstName, LastName = user.LastName, PhoneNo = user.PhoneNo });
+                    users.Add(new LearningMVC.Models.UserList() { UserId = user.UserId, Address = user.Address, Company = user.Company, Designation = user.Designation, Email = user.EMail, FirstName = user.FirstName, LastName = user.LastName, PhoneNo = user.PhoneNo });
                 }
             }
             ViewBag.FirstName = 100d;
@@ -34,7 +34,7 @@ namespace LearningMVC.Controllers
         {
             var dbContext = new MyDBDataContext();
             var userDetails = dbContext.Users.FirstOrDefault(userId => userId.UserId == id);
-            var user = new LearningMVC.Models.User();
+            var user = new LearningMVC.Models.UserList();
             if (userDetails != null)
             {
                 user.UserId = userDetails.UserId;
@@ -86,7 +86,7 @@ namespace LearningMVC.Controllers
 
             var dbContext = new MyDBDataContext();
             var userDetails = dbContext.Users.FirstOrDefault(userId => userId.UserId == id);
-            var user = new LearningMVC.Models.User();
+            var user = new LearningMVC.Models.UserList();
             if (userDetails != null)
             {
                 user.UserId = userDetails.UserId;
@@ -140,7 +140,7 @@ namespace LearningMVC.Controllers
         public ActionResult Delete(int id)
         {
             var dbContext = new MyDBDataContext();
-            var user = new LearningMVC.Models.User();
+            var user = new LearningMVC.Models.UserList();
             var userDetails = dbContext.Users.FirstOrDefault(userId => userId.UserId == id);
             if (userDetails != null)
             {

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LearningMVC.Models
 {
-    public class User
+    public class UserList
     {
         public int UserId { get; set; }
         public string FirstName { get; set; }
