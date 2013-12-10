@@ -1,0 +1,94 @@
+﻿@model List<LearningMVC.Models.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>
+    Index  Value : @ViewBag.FirstName</h2>
+<table border="2">
+    <tr>
+        <td>
+            First Name
+        </td>
+        <td>
+            Last Name
+        </td>
+        <td>
+            Email
+        </td>
+        <td>
+            Address
+        </td>
+        <td>
+            Phone No
+        </td>
+        <td>
+            Company
+        </td>
+        <td>
+            Designation
+        </td>
+        <td>
+            Action
+        </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+            </td>
+        </tr>
+       
+    }
+</table>
+@*<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">@Model.FirstName</div>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">@Model.LastName</div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">@Model.Email</div>
+
+    <div class="display-label">Address</div>
+    <div class="display-field">@Model.Address</div>
+
+    <div class="display-label">PhoneNo</div>
+    <div class="display-field">@Model.PhoneNo</div>
+
+    <div class="display-label">Company</div>
+    <div class="display-field">@Model.Company</div>
+
+    <div class="display-label">Designation</div>
+    <div class="display-field">@Model.Designation</div>
+</fieldset>*@
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
